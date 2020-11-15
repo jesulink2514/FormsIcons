@@ -5,6 +5,47 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:FormsIcons.Views;assembly=FormsIcons">
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style Class="Option" TargetType="Frame">
+                <Setter Property="HasShadow" Value="False" />
+                <Setter Property="CornerRadius" Value="20" />
+            </Style>
+            <Style Class="Enabled" TargetType="Frame">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
+                            <GradientStop Color="#32a4f4" />
+                            <GradientStop Color="#027be3" />
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style Class="Title" TargetType="Label">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="Margin" Value="0,15,0,0" />
+            </Style>
+            <Style Class="SubTitle" TargetType="Label">
+                <Setter Property="TextColor" Value="DarkGray" />
+                <Setter Property="FontSize" Value="13" />
+            </Style>
+            <Style TargetType="views:TechieSwitch">
+                <Setter Property="ThumbBrush" Value="#0079e2" />
+                <Setter Property="BorderBrush" Value="#0079e2" />
+                <Setter Property="Margin" Value="0,15,0,0" />
+            </Style>
+            <Style Class="Enabled" TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+            <Style Class="Enabled" TargetType="views:TechieSwitch">
+                <Setter Property="BorderBrush" Value="White" />
+                <Setter Property="ThumbBrush" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Background>
         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
             <LinearGradientBrush.GradientStops>
@@ -73,104 +114,68 @@
             RowDefinitions="Auto,Auto,Auto,Auto"
             RowSpacing="10">
 
-            <Frame CornerRadius="20" HasShadow="False">
+            <Frame StyleClass="Option">
                 <StackLayout>
                     <BoxView
                         Background="#0079e2"
                         HeightRequest="35"
                         HorizontalOptions="Start"
                         WidthRequest="35" />
-                    <Label
-                        Margin="0,15,0,0"
-                        FontAttributes="Bold"
-                        Text="Air Conditioner"
-                        TextColor="Black" />
-                    <Label Text="Voltas RF140" TextColor="DarkGray" />
-                    <Switch
-                        Margin="0,15,0,0"
-                        HorizontalOptions="Start"
-                        OnColor="#0079e2"
-                        ThumbColor="#0079e2" />
+                    <Label StyleClass="Title" Text="Air Conditioner" />
+                    <Label StyleClass="SubTitle" Text="Voltas RF140" />
+                    <views:TechieSwitch IsOn="True" />
                 </StackLayout>
             </Frame>
 
-            <Frame
-                Grid.Column="1"
-                CornerRadius="20"
-                HasShadow="False">
+            <Frame Grid.Column="1" StyleClass="Option">
                 <StackLayout>
                     <BoxView
                         Background="#0079e2"
                         HeightRequest="35"
                         HorizontalOptions="Start"
                         WidthRequest="35" />
-                    <Label
-                        Margin="0,15,0,0"
-                        FontAttributes="Bold"
-                        Text="Smart TV"
-                        TextColor="Black" />
-                    <Label Text="Samsung EX55 4K" TextColor="DarkGray" />
-                    <Switch
-                        Margin="0,15,0,0"
-                        HorizontalOptions="Start"
-                        OnColor="#0079e2"
-                        ThumbColor="#0079e2" />
+                    <Label StyleClass="Title" Text="Smart TV" />
+                    <Label StyleClass="SubTitle" Text="Samsung EX55 4K" />
+                    <views:TechieSwitch IsOn="True" />
                 </StackLayout>
             </Frame>
 
             <Frame
                 Grid.Row="2"
                 Grid.Column="0"
-                Style="{StaticResource EnabledOptionFrame}">
+                StyleClass="Option,Enabled">
                 <StackLayout>
                     <BoxView
                         Background="White"
                         HeightRequest="35"
                         HorizontalOptions="Start"
                         WidthRequest="35" />
-                    <Label
-                        Margin="0,15,0,0"
-                        FontAttributes="Bold"
-                        Text="Light Bulb"
-                        TextColor="White" />
-                    <Label Text="Phillips Hue 2" TextColor="White" />
-                    <Switch
-                        Margin="0,15,0,0"
-                        HorizontalOptions="Start"
-                        OnColor="White"
-                        ThumbColor="White" />
+                    <Label StyleClass="Title,Enabled" Text="Light Bulb" />
+                    <Label StyleClass="SubTitle,Enabled" Text="Phillips Hue 2" />
+                    <views:TechieSwitch IsOn="True" StyleClass="Enabled" />
                 </StackLayout>
             </Frame>
 
             <Frame
                 Grid.Row="2"
                 Grid.Column="1"
-                CornerRadius="20"
-                HasShadow="False">
+                StyleClass="Option">
                 <StackLayout>
                     <BoxView
                         Background="#0079e2"
                         HeightRequest="35"
                         HorizontalOptions="Start"
                         WidthRequest="35" />
-                    <Label
-                        Margin="0,15,0,0"
-                        FontAttributes="Bold"
-                        Text="Smart TV"
-                        TextColor="Black" />
-                    <Label Text="Samsung EX55 4K" TextColor="DarkGray" />
-                    <Switch
-                        Margin="0,15,0,0"
-                        HorizontalOptions="Start"
-                        OnColor="#0079e2"
-                        ThumbColor="#0079e2" />
+                    <Label StyleClass="Title" Text="Smart TV" />
+                    <Label StyleClass="SubTitle" Text="Samsung EX55 4K" />
+                    <views:TechieSwitch Margin="0,15,0,0" IsOn="True" />
                 </StackLayout>
             </Frame>
 
             <Frame
                 Grid.Row="3"
                 Grid.Column="0"
-                Style="{StaticResource OptionFrame}">
+                StyleClass="Option">
                 <StackLayout Spacing="0">
                     <BoxView
                         Background="#0079e2"
@@ -178,187 +183,15 @@
                         HorizontalOptions="Start"
                         WidthRequest="35" />
 
-                    <Label
-                        Margin="0,10,0,0"
-                        FontAttributes="Bold"
-                        FontSize="16"
-                        Text="Smart TV"
-                        TextColor="Black" />
-                    <Label
-                        FontSize="13"
-                        Text="Samsung EX55 4K"
-                        TextColor="DarkGray" />
-                    <Switch
-                        Margin="0,10,0,0"
-                        HorizontalOptions="Start"
-                        OnColor="#0079e2"
-                        ThumbColor="#0079e2" />
+                    <Label StyleClass="Title" Text="Smart TV" />
+                    <Label StyleClass="SubTitle" Text="Samsung EX55 4K" />
 
-                    <views:TechieSwitch />
+                    <views:TechieSwitch IsOn="True" />
                 </StackLayout>
             </Frame>
 
         </Grid>
 
     </Grid>
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Style x:Key="OptionFrame" TargetType="Frame">
-                <Setter Property="HasShadow" Value="False" />
-                <Setter Property="CornerRadius" Value="20" />
-            </Style>
-            <Style
-                x:Key="EnabledOptionFrame"
-                BaseResourceKey="OptionFrame"
-                TargetType="Frame">
-                <Setter Property="Background">
-                    <Setter.Value>
-                        <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
-                            <GradientStop Color="#32a4f4" />
-                            <GradientStop Color="#027be3" />
-                        </LinearGradientBrush>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-    <!--<StackLayout Padding="0,25,0,0">
-        <Label
-            FontAttributes="Bold"
-            FontSize="35"
-            HorizontalOptions="Center"
-            Text="SmartHome"
-            TextColor="LightCyan" />
-        <Grid
-            Padding="10"
-            ColumnDefinitions="*,*"
-            ColumnSpacing="15"
-            RowDefinitions="Auto,Auto,Auto"
-            RowSpacing="20">
 
-            <Frame
-                Grid.Row="0"
-                BorderColor="White"
-                CornerRadius="0">
-                <Frame.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                        <GradientStop Color="#BAFFFFFF" />
-                        <GradientStop Offset="1" Color="Transparent" />
-                    </LinearGradientBrush>
-                </Frame.Background>
-                <StackLayout>
-                    <Ellipse
-                        Fill="White"
-                        HeightRequest="60"
-                        HorizontalOptions="Center"
-                        WidthRequest="60" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Lights"
-                        TextColor="White" />
-                </StackLayout>
-            </Frame>
-
-            <Frame
-                Grid.Column="1"
-                Background="Transparent"
-                BorderColor="White">
-                <StackLayout>
-                    <Ellipse
-                        Fill="White"
-                        HeightRequest="60"
-                        HorizontalOptions="Center"
-                        WidthRequest="60" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Lights"
-                        TextColor="White" />
-                </StackLayout>
-            </Frame>
-
-            <Frame
-                Grid.Row="1"
-                BorderColor="White"
-                CornerRadius="0">
-                <Frame.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                        <GradientStop Color="#BAFFFFFF" />
-                        <GradientStop Offset="1" Color="Transparent" />
-                    </LinearGradientBrush>
-                </Frame.Background>
-                <StackLayout>
-                    <Ellipse
-                        Fill="White"
-                        HeightRequest="60"
-                        HorizontalOptions="Center"
-                        WidthRequest="60" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Lights"
-                        TextColor="White" />
-                </StackLayout>
-            </Frame>
-
-            <Frame
-                Grid.Row="1"
-                Grid.Column="1"
-                Background="Transparent"
-                BorderColor="White">
-                <StackLayout>
-                    <Ellipse
-                        Fill="White"
-                        HeightRequest="60"
-                        HorizontalOptions="Center"
-                        WidthRequest="60" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Lights"
-                        TextColor="White" />
-                </StackLayout>
-            </Frame>
-
-            <Frame
-                Grid.Row="2"
-                BorderColor="White"
-                CornerRadius="0">
-                <Frame.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                        <GradientStop Color="#BAFFFFFF" />
-                        <GradientStop Offset="1" Color="Transparent" />
-                    </LinearGradientBrush>
-                </Frame.Background>
-                <StackLayout>
-                    <Ellipse
-                        Fill="White"
-                        HeightRequest="60"
-                        HorizontalOptions="Center"
-                        WidthRequest="60" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Lights"
-                        TextColor="White" />
-                </StackLayout>
-            </Frame>
-
-            <Frame
-                Grid.Row="2"
-                Grid.Column="1"
-                Background="Transparent"
-                BorderColor="White">
-                <StackLayout>
-                    <Ellipse
-                        Fill="White"
-                        HeightRequest="60"
-                        HorizontalOptions="Center"
-                        WidthRequest="60" />
-                    <Label
-                        HorizontalOptions="Center"
-                        Text="Lights"
-                        TextColor="White" />
-                </StackLayout>
-            </Frame>
-
-        </Grid>
-
-    </StackLayout>-->
 </ContentPage>
