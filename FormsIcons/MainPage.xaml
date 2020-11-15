@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FormsIcons.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:FormsIcons.Views;assembly=FormsIcons">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <LinearGradientBrush.GradientStops>
+                <GradientStop Offset="0" Color="#f1f4f6" />
+                <GradientStop Offset="1" Color="#F1F1F1" />
+            </LinearGradientBrush.GradientStops>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <Grid
+        Padding="0,25,0,0"
+        RowDefinitions="Auto,Auto,*,Auto"
+        RowSpacing="20">
+        <StackLayout
+            Padding="15,0"
+            HorizontalOptions="FillAndExpand"
+            Orientation="Horizontal">
+            <BoxView
+                Background="LightGray"
+                HeightRequest="25"
+                VerticalOptions="Center"
+                WidthRequest="25" />
+            <Label
+                FontSize="20"
+                Text="25°C"
+                TextColor="#006be0"
+                VerticalOptions="Center" />
+
+            <BoxView
+                Background="#7b93a8"
+                HeightRequest="25"
+                HorizontalOptions="EndAndExpand"
+                VerticalOptions="Center"
+                WidthRequest="25" />
+        </StackLayout>
+
+        <StackLayout
+            Grid.Row="1"
+            Padding="15,0"
+            Orientation="Horizontal"
+            Spacing="25">
+            <Label
+                FontAttributes="Bold"
+                Text="LIVING ROOM"
+                TextColor="Black" />
+            <Label Text="KITCHEN" TextColor="DarkGray" />
+            <Label Text="DRAWING ROOM" TextColor="DarkGray" />
+        </StackLayout>
+
+        <BoxView
+            Grid.Row="1"
+            Margin="20,0,0,0"
+            Background="#006be0"
+            HeightRequest="2"
+            HorizontalOptions="Start"
+            TranslationY="9"
+            VerticalOptions="End"
+            WidthRequest="80" />
+
+        <Grid
+            Grid.Row="2"
+            Margin="0,20,0,0"
+            Padding="15,0"
+            ColumnDefinitions="*,*"
+            ColumnSpacing="25"
+            RowDefinitions="Auto,Auto,Auto,Auto"
+            RowSpacing="10">
+
+            <Frame CornerRadius="20" HasShadow="False">
+                <StackLayout>
+                    <BoxView
+                        Background="#0079e2"
+                        HeightRequest="35"
+                        HorizontalOptions="Start"
+                        WidthRequest="35" />
+                    <Label
+                        Margin="0,15,0,0"
+                        FontAttributes="Bold"
+                        Text="Air Conditioner"
+                        TextColor="Black" />
+                    <Label Text="Voltas RF140" TextColor="DarkGray" />
+                    <Switch
+                        Margin="0,15,0,0"
+                        HorizontalOptions="Start"
+                        OnColor="#0079e2"
+                        ThumbColor="#0079e2" />
+                </StackLayout>
+            </Frame>
+
+            <Frame
+                Grid.Column="1"
+                CornerRadius="20"
+                HasShadow="False">
+                <StackLayout>
+                    <BoxView
+                        Background="#0079e2"
+                        HeightRequest="35"
+                        HorizontalOptions="Start"
+                        WidthRequest="35" />
+                    <Label
+                        Margin="0,15,0,0"
+                        FontAttributes="Bold"
+                        Text="Smart TV"
+                        TextColor="Black" />
+                    <Label Text="Samsung EX55 4K" TextColor="DarkGray" />
+                    <Switch
+                        Margin="0,15,0,0"
+                        HorizontalOptions="Start"
+                        OnColor="#0079e2"
+                        ThumbColor="#0079e2" />
+                </StackLayout>
+            </Frame>
+
+            <Frame
+                Grid.Row="2"
+                Grid.Column="0"
+                Style="{StaticResource EnabledOptionFrame}">
+                <StackLayout>
+                    <BoxView
+                        Background="White"
+                        HeightRequest="35"
+                        HorizontalOptions="Start"
+                        WidthRequest="35" />
+                    <Label
+                        Margin="0,15,0,0"
+                        FontAttributes="Bold"
+                        Text="Light Bulb"
+                        TextColor="White" />
+                    <Label Text="Phillips Hue 2" TextColor="White" />
+                    <Switch
+                        Margin="0,15,0,0"
+                        HorizontalOptions="Start"
+                        OnColor="White"
+                        ThumbColor="White" />
+                </StackLayout>
+            </Frame>
+
+            <Frame
+                Grid.Row="2"
+                Grid.Column="1"
+                CornerRadius="20"
+                HasShadow="False">
+                <StackLayout>
+                    <BoxView
+                        Background="#0079e2"
+                        HeightRequest="35"
+                        HorizontalOptions="Start"
+                        WidthRequest="35" />
+                    <Label
+                        Margin="0,15,0,0"
+                        FontAttributes="Bold"
+                        Text="Smart TV"
+                        TextColor="Black" />
+                    <Label Text="Samsung EX55 4K" TextColor="DarkGray" />
+                    <Switch
+                        Margin="0,15,0,0"
+                        HorizontalOptions="Start"
+                        OnColor="#0079e2"
+                        ThumbColor="#0079e2" />
+                </StackLayout>
+            </Frame>
+
+            <Frame
+                Grid.Row="3"
+                Grid.Column="0"
+                Style="{StaticResource OptionFrame}">
+                <StackLayout Spacing="0">
+                    <BoxView
+                        Background="#0079e2"
+                        HeightRequest="35"
+                        HorizontalOptions="Start"
+                        WidthRequest="35" />
+
+                    <Label
+                        Margin="0,10,0,0"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        Text="Smart TV"
+                        TextColor="Black" />
+                    <Label
+                        FontSize="13"
+                        Text="Samsung EX55 4K"
+                        TextColor="DarkGray" />
+                    <Switch
+                        Margin="0,10,0,0"
+                        HorizontalOptions="Start"
+                        OnColor="#0079e2"
+                        ThumbColor="#0079e2" />
+
+                    <views:TechieSwitch />
+                </StackLayout>
+            </Frame>
+
+        </Grid>
+
+    </Grid>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="OptionFrame" TargetType="Frame">
+                <Setter Property="HasShadow" Value="False" />
+                <Setter Property="CornerRadius" Value="20" />
+            </Style>
+            <Style
+                x:Key="EnabledOptionFrame"
+                BaseResourceKey="OptionFrame"
+                TargetType="Frame">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
+                            <GradientStop Color="#32a4f4" />
+                            <GradientStop Color="#027be3" />
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <!--<StackLayout Padding="0,25,0,0">
+        <Label
+            FontAttributes="Bold"
+            FontSize="35"
+            HorizontalOptions="Center"
+            Text="SmartHome"
+            TextColor="LightCyan" />
+        <Grid
+            Padding="10"
+            ColumnDefinitions="*,*"
+            ColumnSpacing="15"
+            RowDefinitions="Auto,Auto,Auto"
+            RowSpacing="20">
+
+            <Frame
+                Grid.Row="0"
+                BorderColor="White"
+                CornerRadius="0">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#BAFFFFFF" />
+                        <GradientStop Offset="1" Color="Transparent" />
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <StackLayout>
+                    <Ellipse
+                        Fill="White"
+                        HeightRequest="60"
+                        HorizontalOptions="Center"
+                        WidthRequest="60" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Lights"
+                        TextColor="White" />
+                </StackLayout>
+            </Frame>
+
+            <Frame
+                Grid.Column="1"
+                Background="Transparent"
+                BorderColor="White">
+                <StackLayout>
+                    <Ellipse
+                        Fill="White"
+                        HeightRequest="60"
+                        HorizontalOptions="Center"
+                        WidthRequest="60" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Lights"
+                        TextColor="White" />
+                </StackLayout>
+            </Frame>
+
+            <Frame
+                Grid.Row="1"
+                BorderColor="White"
+                CornerRadius="0">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#BAFFFFFF" />
+                        <GradientStop Offset="1" Color="Transparent" />
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <StackLayout>
+                    <Ellipse
+                        Fill="White"
+                        HeightRequest="60"
+                        HorizontalOptions="Center"
+                        WidthRequest="60" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Lights"
+                        TextColor="White" />
+                </StackLayout>
+            </Frame>
+
+            <Frame
+                Grid.Row="1"
+                Grid.Column="1"
+                Background="Transparent"
+                BorderColor="White">
+                <StackLayout>
+                    <Ellipse
+                        Fill="White"
+                        HeightRequest="60"
+                        HorizontalOptions="Center"
+                        WidthRequest="60" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Lights"
+                        TextColor="White" />
+                </StackLayout>
+            </Frame>
+
+            <Frame
+                Grid.Row="2"
+                BorderColor="White"
+                CornerRadius="0">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#BAFFFFFF" />
+                        <GradientStop Offset="1" Color="Transparent" />
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <StackLayout>
+                    <Ellipse
+                        Fill="White"
+                        HeightRequest="60"
+                        HorizontalOptions="Center"
+                        WidthRequest="60" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Lights"
+                        TextColor="White" />
+                </StackLayout>
+            </Frame>
+
+            <Frame
+                Grid.Row="2"
+                Grid.Column="1"
+                Background="Transparent"
+                BorderColor="White">
+                <StackLayout>
+                    <Ellipse
+                        Fill="White"
+                        HeightRequest="60"
+                        HorizontalOptions="Center"
+                        WidthRequest="60" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Lights"
+                        TextColor="White" />
+                </StackLayout>
+            </Frame>
+
+        </Grid>
+
+    </StackLayout>-->
+</ContentPage>
