@@ -3,6 +3,8 @@
     x:Class="FormsIcons.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:tabs="http://sharpnado.com"
+    xmlns:utils="clr-namespace:FormsIcons.Utils;assembly=FormsIcons"
     xmlns:views="clr-namespace:FormsIcons.Views;assembly=FormsIcons">
 
     <ContentPage.Resources>
@@ -10,6 +12,8 @@
             <Style Class="Option" TargetType="Frame">
                 <Setter Property="HasShadow" Value="False" />
                 <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="Padding" Value="15" />
+                <Setter Property="Margin" Value="0,25,0,0" />
             </Style>
             <Style Class="Enabled" TargetType="Frame">
                 <Setter Property="Background">
@@ -25,7 +29,7 @@
                 <Setter Property="TextColor" Value="Black" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="FontSize" Value="16" />
-                <Setter Property="Margin" Value="0,15,0,0" />
+                <Setter Property="Margin" Value="0,12,0,0" />
             </Style>
             <Style Class="SubTitle" TargetType="Label">
                 <Setter Property="TextColor" Value="DarkGray" />
@@ -43,6 +47,15 @@
                 <Setter Property="BorderBrush" Value="White" />
                 <Setter Property="ThumbBrush" Value="White" />
             </Style>
+            <Style Class="FakeIcon" TargetType="BoxView">
+                <Setter Property="Background" Value="#006be0" />
+                <Setter Property="HeightRequest" Value="30" />
+                <Setter Property="WidthRequest" Value="30" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+            </Style>
+            <Style Class="Enabled" TargetType="BoxView">
+                <Setter Property="Background" Value="White" />
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -57,31 +70,37 @@
 
     <Grid
         Padding="0,25,0,0"
+        HorizontalOptions="FillAndExpand"
         RowDefinitions="Auto,Auto,*,Auto"
-        RowSpacing="20">
+        RowSpacing="0"
+        VerticalOptions="FillAndExpand">
+        <!--  Top Icons  -->
         <StackLayout
-            Padding="15,0"
+            Padding="15,0,15,15"
             HorizontalOptions="FillAndExpand"
             Orientation="Horizontal">
-            <BoxView
-                Background="LightGray"
-                HeightRequest="25"
-                VerticalOptions="Center"
-                WidthRequest="25" />
+            <Label
+                FontFamily="FontAwesome"
+                FontSize="18"
+                Text="{x:Static utils:FAIcons.Snowflake}"
+                TextColor="LightGray"
+                VerticalOptions="Center" />
             <Label
                 FontSize="20"
                 Text="25°C"
                 TextColor="#006be0"
                 VerticalOptions="Center" />
 
-            <BoxView
-                Background="#7b93a8"
-                HeightRequest="25"
+            <Label
+                FontFamily="FontAwesome"
+                FontSize="20"
                 HorizontalOptions="EndAndExpand"
-                VerticalOptions="Center"
-                WidthRequest="25" />
+                Text="{x:Static utils:FAIcons.Bell}"
+                TextColor="#7b93a8"
+                VerticalOptions="Center" />
         </StackLayout>
 
+        <!--  Top Tabs  -->
         <StackLayout
             Grid.Row="1"
             Padding="15,0"
@@ -105,22 +124,24 @@
             VerticalOptions="End"
             WidthRequest="80" />
 
+        <!--  Tile Grid  -->
+
         <Grid
             Grid.Row="2"
-            Margin="0,20,0,0"
+            Margin="0"
             Padding="15,0"
             ColumnDefinitions="*,*"
             ColumnSpacing="25"
-            RowDefinitions="Auto,Auto,Auto,Auto"
-            RowSpacing="10">
+            RowDefinitions="Auto,Auto,Auto,*"
+            RowSpacing="0">
 
             <Frame StyleClass="Option">
-                <StackLayout>
-                    <BoxView
-                        Background="#0079e2"
-                        HeightRequest="35"
-                        HorizontalOptions="Start"
-                        WidthRequest="35" />
+                <StackLayout Spacing="0">
+                    <Label
+                        FontFamily="FontAwesome"
+                        FontSize="28"
+                        Text="{x:Static utils:FAIcons.Temperature}"
+                        TextColor="#006be0" />
                     <Label StyleClass="Title" Text="Air Conditioner" />
                     <Label StyleClass="SubTitle" Text="Voltas RF140" />
                     <views:TechieSwitch IsOn="True" />
@@ -128,12 +149,12 @@
             </Frame>
 
             <Frame Grid.Column="1" StyleClass="Option">
-                <StackLayout>
-                    <BoxView
-                        Background="#0079e2"
-                        HeightRequest="35"
-                        HorizontalOptions="Start"
-                        WidthRequest="35" />
+                <StackLayout Spacing="0">
+                    <Label
+                        FontFamily="FontAwesome"
+                        FontSize="28"
+                        Text="{x:Static utils:FAIcons.Tv}"
+                        TextColor="#006be0" />
                     <Label StyleClass="Title" Text="Smart TV" />
                     <Label StyleClass="SubTitle" Text="Samsung EX55 4K" />
                     <views:TechieSwitch IsOn="True" />
@@ -141,15 +162,15 @@
             </Frame>
 
             <Frame
-                Grid.Row="2"
+                Grid.Row="1"
                 Grid.Column="0"
                 StyleClass="Option,Enabled">
-                <StackLayout>
-                    <BoxView
-                        Background="White"
-                        HeightRequest="35"
-                        HorizontalOptions="Start"
-                        WidthRequest="35" />
+                <StackLayout Spacing="0">
+                    <Label
+                        FontFamily="FontAwesome"
+                        FontSize="28"
+                        Text="{x:Static utils:FAIcons.LightBulb}"
+                        TextColor="White" />
                     <Label StyleClass="Title,Enabled" Text="Light Bulb" />
                     <Label StyleClass="SubTitle,Enabled" Text="Phillips Hue 2" />
                     <views:TechieSwitch IsOn="True" StyleClass="Enabled" />
@@ -157,39 +178,155 @@
             </Frame>
 
             <Frame
-                Grid.Row="2"
+                Grid.Row="1"
                 Grid.Column="1"
                 StyleClass="Option">
-                <StackLayout>
-                    <BoxView
-                        Background="#0079e2"
-                        HeightRequest="35"
-                        HorizontalOptions="Start"
-                        WidthRequest="35" />
-                    <Label StyleClass="Title" Text="Smart TV" />
-                    <Label StyleClass="SubTitle" Text="Samsung EX55 4K" />
-                    <views:TechieSwitch Margin="0,15,0,0" IsOn="True" />
-                </StackLayout>
-            </Frame>
-
-            <Frame
-                Grid.Row="3"
-                Grid.Column="0"
-                StyleClass="Option">
                 <StackLayout Spacing="0">
-                    <BoxView
-                        Background="#0079e2"
-                        HeightRequest="35"
-                        HorizontalOptions="Start"
-                        WidthRequest="35" />
-
-                    <Label StyleClass="Title" Text="Smart TV" />
-                    <Label StyleClass="SubTitle" Text="Samsung EX55 4K" />
-
+                    <Label
+                        FontFamily="FontAwesome"
+                        FontSize="28"
+                        Text="{x:Static utils:FAIcons.Wash}"
+                        TextColor="#006be0" />
+                    <Label StyleClass="Title" Text="Washing Machine" />
+                    <Label StyleClass="SubTitle" Text="Bosch 7kg 5474" />
                     <views:TechieSwitch IsOn="True" />
                 </StackLayout>
             </Frame>
 
+            <Frame
+                Grid.Row="2"
+                Grid.Column="0"
+                StyleClass="Option">
+                <StackLayout Spacing="0">
+                    <Label
+                        FontFamily="FontAwesome"
+                        FontSize="28"
+                        Text="{x:Static utils:FAIcons.DoorClosed}"
+                        TextColor="#006be0" />
+                    <Label StyleClass="Title" Text="Refrigerator" />
+                    <Label StyleClass="SubTitle" Text="Whirlpool WR190" />
+                    <views:TechieSwitch IsOn="True" />
+                </StackLayout>
+            </Frame>
+
+            <Frame
+                Grid.Row="2"
+                Grid.Column="1"
+                StyleClass="Option">
+                <StackLayout Spacing="0">
+                    <Label
+                        FontFamily="FontAwesome"
+                        FontSize="28"
+                        Text="{x:Static utils:FAIcons.Wifi}"
+                        TextColor="#006be0" />
+                    <Label StyleClass="Title" Text="Router" />
+                    <Label StyleClass="SubTitle" Text="TP-Link 878" />
+                    <views:TechieSwitch IsOn="True" />
+                </StackLayout>
+            </Frame>
+
+            <!--  Bottom Tabs  -->
+            <Grid
+                Grid.Row="3"
+                Grid.ColumnSpan="2"
+                Margin="-15,0"
+                ColumnDefinitions="*,Auto,*"
+                ColumnSpacing="0"
+                VerticalOptions="Fill">
+
+                <BoxView
+                    Background="White"
+                    HeightRequest="80"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="End" />
+                <Path
+                    Grid.Column="1"
+                    Aspect="Uniform"
+                    Data="M177.64 0c-10.85,0 -20.17,6.54 -24.24,15.88 -1.02,2.34 -1.77,4.82 -2.84,7.28 -8.65,19.83 -28.42,33.69 -51.44,33.69 -22.26,0 -41.49,-12.97 -50.55,-31.76 -1.88,-3.9 -3.04,-8.43 -5.03,-12.04 -3.29,-5.97 -9.3,-10.31 -16.07,-12.14 -4.7,-1.27 -8.64,-0.82 -13.37,-0.82l-14.11 0 0 118.56 198.59 0 0 -118.65 -20.95 0z"
+                    Fill="White"
+                    HeightRequest="80"
+                    HorizontalOptions="Center"
+                    VerticalOptions="End"
+                    WidthRequest="132" />
+                <BoxView
+                    Grid.Column="2"
+                    Background="White"
+                    HeightRequest="80"
+                    HorizontalOptions="Fill"
+                    VerticalOptions="End" />
+
+                <tabs:TabHostView
+                    Grid.ColumnSpan="3"
+                    HeightRequest="80"
+                    HorizontalOptions="FillAndExpand"
+                    TabType="Fixed"
+                    VerticalOptions="End">
+                    <tabs:TabHostView.Tabs>
+                        <tabs:BottomTabItem IsSelected="True">
+                            <Label
+                                Margin="0,12"
+                                FontFamily="FontAwesome"
+                                FontSize="20"
+                                HorizontalOptions="Center"
+                                Text="{x:Static utils:FAIcons.Home}"
+                                TextColor="#0079e2"
+                                VerticalOptions="Start" />
+                        </tabs:BottomTabItem>
+                        <tabs:BottomTabItem>
+                            <Label
+                                Margin="0,12"
+                                FontFamily="FontAwesome"
+                                FontSize="20"
+                                HorizontalOptions="Center"
+                                Text="{x:Static utils:FAIcons.Calendar}"
+                                TextColor="DarkGray"
+                                VerticalOptions="Start" />
+                        </tabs:BottomTabItem>
+                        <tabs:BottomTabItem TranslationY="-40">
+                            <Grid>
+                                <Ellipse
+                                    HeightRequest="60"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    WidthRequest="60">
+                                    <Ellipse.Fill>
+                                        <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
+                                            <GradientStop Offset="0" Color="#32a4f4" />
+                                            <GradientStop Offset="1" Color="#027be3" />
+                                        </LinearGradientBrush>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <Label
+                                    FontSize="28"
+                                    HorizontalOptions="Center"
+                                    Text="+"
+                                    TextColor="White"
+                                    VerticalOptions="Center" />
+                            </Grid>
+                        </tabs:BottomTabItem>
+                        <tabs:BottomTabItem>
+                            <Label
+                                Margin="0,12"
+                                FontFamily="FontAwesome"
+                                FontSize="20"
+                                HorizontalOptions="Center"
+                                Text="{x:Static utils:FAIcons.Stats}"
+                                TextColor="DarkGray"
+                                VerticalOptions="Start" />
+                        </tabs:BottomTabItem>
+                        <tabs:BottomTabItem>
+                            <Label
+                                Margin="0,12"
+                                FontFamily="FontAwesome"
+                                FontSize="20"
+                                HorizontalOptions="Center"
+                                Text="{x:Static utils:FAIcons.More}"
+                                TextColor="DarkGray"
+                                VerticalOptions="Start" />
+                        </tabs:BottomTabItem>
+                    </tabs:TabHostView.Tabs>
+                </tabs:TabHostView>
+            </Grid>
         </Grid>
 
     </Grid>

@@ -25,6 +25,8 @@ namespace FormsIcons.iOS
         {
             Forms.SetFlags("Brush_Experimental", "Shapes_Experimental");
             global::Xamarin.Forms.Forms.Init();
+            Sharpnado.Tabs.iOS.Preserver.Preserve();
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

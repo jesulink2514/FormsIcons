@@ -9,7 +9,7 @@ namespace FormsIcons
         public App()
         {
             InitializeComponent();
-
+            Sharpnado.Tabs.Initializer.Initialize(loggerEnable:false,debugLogEnable:true);
             MainPage = new MainPage();
         }
 
