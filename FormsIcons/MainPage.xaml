@@ -83,7 +83,7 @@
                 FontFamily="FontAwesome"
                 FontSize="18"
                 Text="{x:Static utils:FAIcons.Snowflake}"
-                TextColor="LightGray"
+                TextColor="DarkGray"
                 VerticalOptions="Center" />
             <Label
                 FontSize="20"
