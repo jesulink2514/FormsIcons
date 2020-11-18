@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -27,16 +21,18 @@ namespace FormsIcons.Views
         public TechieSwitch()
         {
             InitializeComponent();
+            SizeChanged += TechieSwitch_SizeChanged;
         }
+
+        private void TechieSwitch_SizeChanged(object sender, EventArgs e)
+        {
+            (this as ITechiesSwitchController).SetUITo(IsOn);
+        }
+
         public bool IsOn
         {
             get => (bool)GetValue(IsOnProperty);
-            set
-            {
-                SetValue(IsOnProperty, value);
-                RaisePropertyChanged(nameof(IsOn));
-                (this as ITechiesSwitchController).SetUITo(value);
-            }
+            set => SetValue(IsOnProperty, value);
         }
 
         public Brush ThumbBrush
@@ -53,8 +49,6 @@ namespace FormsIcons.Views
 
         private void ClickGestureRecognizer_OnClicked(object sender, EventArgs e)
         {
-            (this as ITechiesSwitchController).SetUITo(!IsOn);
-
             IsOn = !IsOn;
         }
 
