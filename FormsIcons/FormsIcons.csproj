@@ -11,10 +11,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="fa-regular.ttf" />
     <None Remove="fa-solid.ttf" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="fa-regular.ttf" />
     <EmbeddedResource Include="fa-solid.ttf" />
   </ItemGroup>
 

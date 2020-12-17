@@ -21,5 +21,7 @@ namespace FormsIcons.Utils
         public static string Wash = "\ue06e";
         public static string Wifi = "\uf1eb";
         public static string DoorClosed = "\uf52a";
+
+        public static string PhoneBook = "\uf2b9";
     }
 }
